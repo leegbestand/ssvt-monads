@@ -68,7 +68,7 @@ multiplicationTable' :: Integer -> [Integer]
 multiplicationTable' n = [n * factor | factor <- [1..10]]
 
 multiplicationTable'' :: Integer -> [Integer]
-multiplicationTable'' n = [n*1..n*10]
+multiplicationTable'' n = [n, n*2..n*10]
 
 prop_moduloIsZero :: (Integer -> [Integer]) -> Integer -> Bool 
 prop_moduloIsZero f x = all (\v -> v `mod` x == 0) (f x)
