@@ -98,7 +98,7 @@ data Tree a = Leaf a | Tree (Tree a) (Tree a)
 
 -- Implement an arbitrary instance for the Tree datatype
 -- There are many different approaches.
-instance Arbitary a => Arbitrary (Tree a) where 
+instance Arbitrary a => Arbitrary (Tree a) where 
     arbitrary = undefined
 
 main :: IO ()
