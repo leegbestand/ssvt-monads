@@ -2,8 +2,12 @@ module Main (main) where
 
 import Test.QuickCheck
 
+{-
+Utilize [1..n] to generate a list of integers from 1 to n
+Your task is to replace undefined with the correct code.
+-}
 coords :: Int -> [[(Int, Int)]]
-coords n = undefined
+coords n = map (\x -> undefined) [1..n]
 
 -- Will be explained around slide 20.
 coordsM n = [1..n] >>= \c1 -> [1..n] >>= \c2 -> return (c1, c2)
@@ -27,9 +31,19 @@ exampleExprFail = Div (Add (Value 1) (Value 2)) (Value 0)
 
 eval :: Arith -> Maybe Int
 eval (Value v) = Just v
-eval (Add e1 e2) = undefined
-eval (Div e1 e2) = undefined
+eval (Add e1 e2) = 
+    case eval e1 of 
+        Nothing -> Nothing
+        (Just v1) -> 
+            case eval e2 of 
+                Nothing -> Nothing
+                (Just v2) -> Just $ v1 + v2
+eval (Div e1 e2) = undefined 
 
+{-
+The Maybe type is given by the following definition:
+data Maybe a = Just a | Nothing
+-}
 
 -- return for Maybe
 mreturn :: a -> Maybe a
